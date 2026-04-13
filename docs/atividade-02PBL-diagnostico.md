@@ -6,7 +6,7 @@
   
   Equipe: Tech Quality
 I 
-  Integrantes: Vinicius Ortiz, Augusto Martins, Erick Rodrigues, Gabriel Piske
+  Integrantes: Gabriel Piske
 
 
 #1. Diagnostico da situação atual  
