@@ -3,10 +3,9 @@
 **Sistema:** LocalEats  
 **Disciplina:** Qualidade de Software  
 **Metodologia:** PBL  
-**Autor:** Gabriel  
+**Integrante:** Gabriel Piske 
 **Data:** Abril/2026
 
----
 
 ## 1. Plano de Testes
 
@@ -52,28 +51,17 @@ Validar as principais funcionalidades do sistema LocalEats, verificando se o com
 
 Os testes serão executados manualmente no navegador Google Chrome (versão desktop), acessando diretamente a URL `https://local-eats-unisenac.vercel.app/`. Para cada caso de teste, serão registrados o resultado obtido e uma evidência descritiva. Casos onde o sistema não retornar resposta válida serão classificados como **Falhou**.
 
-**Ambiente de teste:**
-
-| Item | Valor |
-|---|---|
-| URL | https://local-eats-unisenac.vercel.app/ |
-| Navegador | Google Chrome (desktop) |
-| Tipo de conexão | Rede doméstica / Wi-Fi |
-| Data de execução | Abril/2026 |
-
 ### 1.5 Responsáveis
 
 | Responsável | Atividade |
-|---|---|
+
 | Gabriel | Elaboração do plano, especificação e execução dos casos de teste, registro de resultados e análise |
 
----
 
 ## 2. Casos de Teste
 
 > Linguagem utilizada: **Gherkin**
 
----
 
 ### CT01 – Carregamento da listagem de restaurantes
 
@@ -90,7 +78,6 @@ E cada restaurante deve apresentar nome, imagem e categoria
 **Dados de entrada:** Nenhum (acesso direto à URL)  
 **Resultado esperado:** Lista de restaurantes exibida com pelo menos um item visível, sem erros de carregamento.
 
----
 
 ### CT02 – Filtro por categoria "Italiana"
 
@@ -108,7 +95,6 @@ E restaurantes de outras categorias não devem aparecer na listagem
 **Dados de entrada:** Clique no botão "Italiana"  
 **Resultado esperado:** Listagem filtrada exibindo apenas restaurantes italianos.
 
----
 
 ### CT03 – Busca por termo existente
 
@@ -125,7 +111,6 @@ Então o sistema deve exibir somente os restaurantes cujo nome contém o termo d
 **Dados de entrada:** Termo de busca: nome parcial ou completo de um restaurante visível na listagem  
 **Resultado esperado:** Resultado filtrado contendo o restaurante pesquisado.
 
----
 
 ### CT04 – Acesso à página "Meus Favoritos"
 
@@ -142,7 +127,6 @@ E a página deve exibir um título ou indicação de conteúdo (favoritos do usu
 **Dados de entrada:** Clique no link "Meus Favoritos"  
 **Resultado esperado:** Página carregada com título "Restaurantes Favoritos" visível, sem erros.
 
----
 
 ### CT05 – Acesso à página "Meus Pedidos"
 
@@ -159,7 +143,6 @@ E a página deve exibir o título "Histórico de Transações" ou uma mensagem d
 **Dados de entrada:** Clique no link "Meus Pedidos"  
 **Resultado esperado:** Página carregada corretamente, sem erros de renderização.
 
----
 
 ### CT06 – Busca por termo inexistente
 
@@ -177,7 +160,6 @@ E a listagem deve aparecer vazia, sem exibir restaurantes incorretos
 **Dados de entrada:** Termo de busca: `"xyzrestauranteinexistente123"`  
 **Resultado esperado:** Listagem vazia com mensagem informativa ao usuário (ex: "Nenhum restaurante encontrado").
 
----
 
 ### CT07 – Filtro por categoria sem resultados ou com falha de resposta
 
@@ -195,12 +177,11 @@ E não deve travar, exibir erro genérico ou ficar em estado de carregamento ind
 **Dados de entrada:** Clique em qualquer filtro de categoria (ex: "Mexicana")  
 **Resultado esperado:** Comportamento claro: lista com resultados ou mensagem de "nenhum resultado encontrado". Sem estado de carregamento infinito.
 
----
 
 ## 3. Execução dos Testes
 
 | ID | Título | Resultado | Evidência |
-|---|---|---|---|
+
 | CT01 | Carregamento da listagem de restaurantes | **Falhou** | A página exibe a mensagem "Carregando os melhores restaurantes..." indefinidamente, sem apresentar nenhum restaurante. A listagem nunca é renderizada. |
 | CT02 | Filtro por categoria "Italiana" | **Falhou** | Como a listagem não carrega (CT01), os botões de filtro existem na interface, mas a ação não produz resultado visível — nenhum restaurante é exibido após o clique. |
 | CT03 | Busca por termo existente | **Falhou** | O campo de busca está presente na interface, porém como a listagem não carrega, nenhuma busca retorna resultado. O sistema permanece em estado de "carregamento". |
@@ -209,12 +190,11 @@ E não deve travar, exibir erro genérico ou ficar em estado de carregamento ind
 | CT06 | Busca por termo inexistente | **Falhou** | Não foi possível validar o comportamento de erro, pois o sistema não carrega a listagem. Nenhuma mensagem de "resultado não encontrado" é exibida — o sistema permanece em estado de carregamento. |
 | CT07 | Filtro sem resultados ou com falha | **Falhou** | O sistema permanece em estado de "carregando" após qualquer interação com filtros. Não exibe mensagem de erro nem de ausência de resultados. Comportamento indefinido. |
 
----
 
 ## 4. Análise dos Resultados
 
 | Métrica | Valor |
-|---|---|
+
 | Total de testes executados | 7 |
 | Testes que passaram | 2 |
 | Testes que falharam | 5 |
@@ -222,7 +202,7 @@ E não deve travar, exibir erro genérico ou ficar em estado de carregamento ind
 
 ### Principais problemas encontrados
 
-**1. Listagem de restaurantes não carrega (bloqueante)**  
+**1. Listagem de restaurantes não carrega**  
 A falha mais crítica do sistema. A página principal exibe indefinidamente a mensagem "Carregando os melhores restaurantes...", sem nunca renderizar os dados. Esse problema é **bloqueante**, pois impede a validação de todas as funcionalidades dependentes da listagem (busca, filtros e, possivelmente, favoritos e pedidos).
 
 **Hipótese técnica:** A falha provavelmente está relacionada a uma chamada de API ou endpoint externo que não retorna dados (erro de CORS, endpoint indisponível, dados inexistentes no banco ou falha de integração com o backend).
@@ -236,7 +216,6 @@ Em nenhum momento o sistema apresenta uma mensagem de erro ao usuário (ex: "Nã
 **4. Páginas de navegação funcionais, porém com conteúdo em espera**  
 As páginas "Meus Favoritos" e "Meus Pedidos" carregam corretamente do ponto de vista de estrutura e navegação, mas seus conteúdos também ficam presos em estado de carregamento, sugerindo que a mesma causa raiz afeta todo o sistema.
 
----
 
 ## 5. Reflexão no Contexto do LocalEats
 
