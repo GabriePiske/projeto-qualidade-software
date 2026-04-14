@@ -11,10 +11,10 @@ realizadas por meio da metodologia PBL, no caso baseando se no aprendizado basea
 
 # 📚 Organização
 
-- `docs/` → Atividades realizadas ao longo das aulas
 - `artefatos/` → Diagramas, relatórios e evidências
-- `src/` → Código-fonte (quando aplicável)
+- `docs/` → Atividades realizadas ao longo das aulas
 - `referencias/` → Materiais de apoio e bibliografia
+- `src/` → Código-fonte (quando aplicável)
 
 ## 📦 Entregas
 
