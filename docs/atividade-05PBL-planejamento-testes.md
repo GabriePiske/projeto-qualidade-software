@@ -55,7 +55,7 @@ Testes manuais baseados em cenários definidos previamente, executados no navega
 ### 1.5 Responsáveis
 
 | Nome | Responsabilidade |
-|---|---|
+
 | Gabriel | Elaboração do plano, especificação e execução dos casos de teste, registro de resultados e análise |
 
 
@@ -195,11 +195,11 @@ Testes manuais baseados em cenários definidos previamente, executados no navega
 
 **O plano de testes ajudou a organizar melhor o processo? Por quê?**
 
-Sim. Definir o escopo antecipadamente foi essencial para não perder tempo testando funcionalidades fora do alcance, como autenticação, que não existe no sistema. A inclusão das abas "Cardápio" e "Avaliações" no escopo, identificada durante a exploração inicial da aplicação, demonstrou que o plano deve ser atualizado conforme o conhecimento sobre o sistema aumenta — o que é uma prática natural em QA.
+Sim. Definir o escopo antecipadamente foi essencial para não perder tempo testando funcionalidades fora do alcance, como autenticação, que não existe no sistema. A inclusão das abas "Cardápio" e "Avaliações" no escopo, identificada durante a exploração inicial da aplicação, demonstrou que o plano deve ser atualizado conforme o conhecimento sobre o sistema aumenta.
 
 **Algum problema só foi identificado durante a execução? Explique.**
 
-Sim. A falha nos botões "Cardápio" e "Avaliações" só foi identificada durante a execução real dos testes. Na fase de planejamento, a hipótese era que a navegação interna das abas funcionaria normalmente, já que o conteúdo estava visível na tela. A execução revelou que os botões existem visualmente mas não possuem comportamento funcional associado — um tipo de bug sutil que dificilmente seria detectado sem interação direta com o sistema.
+Sim. A falha nos botões "Cardápio" e "Avaliações" só foi identificada durante a execução real dos testes. Na fase de planejamento, a hipótese era que a navegação interna das abas funcionaria normalmente, já que o conteúdo estava visível na tela. A execução revelou que os botões existem visualmente mas não possuem comportamento funcional associado, um tipo de bug sutil que dificilmente seria detectado sem interação direta com o sistema.
 
 **O que o grupo melhoraria no processo de testes?**
 
@@ -233,4 +233,4 @@ O sistema LocalEats apresenta qualidade parcial. A estrutura de navegação prin
 
 **Impressão geral sobre o processo de testes:**
 
-O processo de planejamento e execução de testes se mostrou eficaz para identificar problemas que não seriam evidentes em uma análise superficial da interface. A estrutura de casos de teste facilitou a descrição clara dos cenários e a comparação entre o resultado esperado e o obtido. A experiência reforçou a importância de interagir ativamente com o sistema durante a execução — e não apenas observar a interface — para descobrir falhas funcionais mais sutis.
+O processo de planejamento e execução de testes se mostrou eficaz para identificar problemas que não seriam evidentes em uma análise superficial da interface. A estrutura de casos de teste facilitou a descrição clara dos cenários e a comparação entre o resultado esperado e o obtido.
