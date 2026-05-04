@@ -1,4 +1,4 @@
-#Diagnóstico de Qualidade – Startup Local Eats
+# Diagnóstico de Qualidade – Startup Local Eats
   
 **Equipe:** Tech Quality
 
@@ -7,7 +7,7 @@
 **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
-#1. Diagnostico da situação atual  
+## 1. Diagnostico da situação atual  
 
 
   1.1 Papéis atuais identificados
@@ -36,7 +36,7 @@
     
     - A qualidade deve ser responsabilidade de toda a equipe. Embora exista um papel específico de QA, todos os envolvidos no desenvolvimento devem contribuir para garantir a qualidade do produto
 
-#2. Papéis da Equipe Propostos
+## 2. Papéis da Equipe Propostos
 
 
   2.1 Lista de papéis
@@ -51,7 +51,7 @@
     - QA(Analista de Qualidade) -> planejar e executar os testes, registrar bugs e validar funcionalidades -> responsável por verificar a qualidade antes da entrega; 
     - Analista de Sistemas -> levantar e documentar requisitos -> evitar erros de entendimento e garantindo que o sistema atenda às necessidades;
 
-#3. Práticas de QA Sugeridas
+## 3. Práticas de QA Sugeridas
     
   
   3.1 Lista de práticas
@@ -69,7 +69,7 @@
 
      -Pratica 03 -> Executar testes exploratórios para identificar problemas que não foram previstos inicialmente.
 
-#4. Anúncios de Contratação
+## 4. Anúncios de Contratação
 
    4.1 Vaga 01 - Analista de Qualidade de Software (QA)
 
