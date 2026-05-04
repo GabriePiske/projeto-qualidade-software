@@ -1,11 +1,10 @@
 #Estrategia inicial de testes - LocalEats
 
-Equipe: Tech Quality
+ Equipe: Tech Quality
 
-Integrante: Gabriel Piske
+ Integrante: Gabriel Piske
 
-Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
-
+ Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
 #1.Funcionalidades
