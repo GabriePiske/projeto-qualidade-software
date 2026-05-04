@@ -1,9 +1,10 @@
 # Testes Unitários Automatizados e TDD – LocalEats
 
-**Aluno:** Gabriel  
-**Curso:** Análise e Desenvolvimento de Sistemas – Senac Pelotas  
-**Disciplina:** Qualidade de Software  
-**Sistema:** LocalEats  
+ **Equipe:** Tech Quality
+
+ **Integrante:** Gabriel Piske
+
+ **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 ---
 
