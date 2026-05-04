@@ -90,7 +90,7 @@
     Justificativa: elementos importantes pensando em experiencia mas não impedem o uso básico do sistema.
 
 
-4. Pirâmide de Testes
+#4. Pirâmide de Testes
    
     - Maior foco: Testes unitários
     - Médio foco: Testes de integração
