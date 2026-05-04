@@ -6,8 +6,6 @@
 
 **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
- Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
-
 
 #1. Diagnostico da situação atual  
 
