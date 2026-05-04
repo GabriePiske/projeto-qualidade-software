@@ -1,4 +1,4 @@
-# 🧪 PBL – Aula 9: Testes Unitários Automatizados e TDD – LocalEats
+# Testes Unitários Automatizados e TDD – LocalEats
 
 **Aluno:** Gabriel  
 **Curso:** Análise e Desenvolvimento de Sistemas – Senac Pelotas  
