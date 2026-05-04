@@ -1,10 +1,10 @@
 # Planejamento e Execução de Testes
 
-**Disciplina:** Qualidade de Software  
-**Projeto:** LocalEats  
-**Integrantes do grupo:**
+ **Equipe:** Tech Quality
 
-* Gabriel Piske
+ **Integrante:** Gabriel Piske
+
+ **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
 ## 1. Plano de Testes
