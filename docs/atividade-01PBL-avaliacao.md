@@ -7,7 +7,7 @@
  **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
-#Esta atividade foca em listar os problemas do Localeats (aplicação de comida ficticia) no caso o nosso PBL , e fazer a associação
+## Esta atividade foca em listar os problemas do Localeats (aplicação de comida ficticia) no caso o nosso PBL , e fazer a associação
 destes problemas com competencias da ISO25010
 
 | Problema identificado | Atributo de qualidade afetado | Justificativa técnica |
