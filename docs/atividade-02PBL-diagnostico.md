@@ -1,10 +1,10 @@
 #Diagnóstico de Qualidade – Startup Local Eats
-
-  Disciplina: Qualidade de Software
   
-  Aula 3 – Papéis, Responsabilidades e Práticas de QA
+  Papéis, Responsabilidades e Práticas de QA
   
   Equipe: Tech Quality
+
+  Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 I 
   Integrantes: Gabriel Piske
 
