@@ -1,4 +1,4 @@
-#Estrategia inicial de testes - LocalEats
+# Estrategia inicial de testes - LocalEats
 
  **Equipe:** Tech Quality
 
@@ -7,7 +7,7 @@
  **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
-#1.Funcionalidades
+## 1.Funcionalidades
 
 
     - Login
@@ -21,10 +21,10 @@
     - Recomendações personalizadas
 
 
-#2.Niveis de testes
+##2.Niveis de testes
  
 
-  #Funcionalidade: Login
+  ### Funcionalidade: Login
 
      - Unitário: validação de senha, e-mail e campos obrigatórios
 
@@ -35,7 +35,7 @@
      - Aceitação: usuário consegue acessar sua conta sem erros  
   
 
-  #Funcionalidade: Busca de restaurantes
+  ### Funcionalidade: Busca de restaurantes
 
      - Unitário: filtros de busca (tipo, localização, preço)
 
@@ -46,7 +46,7 @@
      - Aceitação: usuário encontra restaurantes corretamente
 
 
-  #Funcionalidade: Visualização de restaurante
+  ### Funcionalidade: Visualização de restaurante
 
      - Unitário: carregamento de dados (nome, cardápio, avaliações)
 
@@ -57,7 +57,7 @@
      - Aceitação: usuário visualiza informações completas
 
 
-  #Funcionalidade: Sistema de avaliações
+  ### Funcionalidade: Sistema de avaliações
 
      - Unitário: envio e validação de avaliação
 
@@ -68,7 +68,7 @@
      - Aceitação: avaliação aparece corretamente
   
 
-  #Funcionalidade: Recomendações personalizadas
+  ### Funcionalidade: Recomendações personalizadas
 
      - Unitário: lógica de recomendação
 
@@ -78,7 +78,7 @@
      
      - Aceitação: usuário recebe recomendações relevantes
 
-#3. Prioridades e Riscos
+## 3. Prioridades e Riscos
 
   Alta prioridade:
 
@@ -96,7 +96,7 @@
     Justificativa: elementos importantes pensando em experiencia mas não impedem o uso básico do sistema.
 
 
-#4. Pirâmide de Testes
+## 4. Pirâmide de Testes
    
     - Maior foco: Testes unitários
     - Médio foco: Testes de integração
@@ -107,7 +107,7 @@
     Testes de sistema são mais caros e lentos, então devem ser usados com menor frequência..
 
 
-#5. Testes em Produção
+## 5. Testes em Produção
 
     - Uso de monitoramento e testes controlados (ex: feature flags)
     - Aplicar em novas funcionalidades e recomendações
