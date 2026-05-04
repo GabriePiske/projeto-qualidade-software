@@ -1,10 +1,10 @@
 #Diagnóstico de Qualidade – Startup Local Eats
   
-  Papéis, Responsabilidades e Práticas de QA
+**Equipe:** Tech Quality
 
- Equipe: Tech Quality
+**Integrante:** Gabriel Piske
 
- Integrante: Gabriel Piske
+**Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
  Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
