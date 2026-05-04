@@ -159,6 +159,6 @@
        - ISTQB CTFL
     
 
-#5. Conclusão da Equipe
+## 5. Conclusão da Equipe
 
     - A equipe compreendeu a importância da definição de papéis e responsabilidades para garantir a qualidade do software. Uma das principais dificuldades foi identificar corretamente os problemas organizacionais. Como melhoria, foi proposta a inclusão de um papel de QA, definição clara de responsabilidades e adoção de práticas básicas de teste.
