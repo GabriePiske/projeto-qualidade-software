@@ -1,8 +1,11 @@
 #Testes Funcionais e Estruturais
 
-🔹Integrantes do Grupo
+Equipe: Tech Quality
 
-- Gabriel Piske
+ Integrante: Gabriel Piske
+
+ Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
+
 
 #1. Funcionalidade
 
