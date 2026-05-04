@@ -7,6 +7,7 @@ Integrante: Gabriel Piske
 Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
+
 #1.Funcionalidades
 
 
