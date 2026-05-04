@@ -1,4 +1,4 @@
-#Testes Funcionais e Estruturais
+# Testes Funcionais e Estruturais
 
  **Equipe:** Tech Quality
 
@@ -7,7 +7,7 @@
  **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
-#1. Funcionalidade
+## 1. Funcionalidade
 
  🔹Funcionalidade selecionada:
   
@@ -22,7 +22,7 @@
     - O usuário espera encontrar resultados corretos, rápidos e relevantes de acordo com os filtros informados.
 
 
-#2. Testes de Caixa-preta (visão do usuario)
+## 2. Testes de Caixa-preta (visão do usuario)
 
   
 🔹Cenários de teste
@@ -52,7 +52,7 @@
      - Lentidão na resposta da busca 
 
 
-#3. Testes de Caixa-branca (visão do sistema)
+## 3. Testes de Caixa-branca (visão do sistema)
 
   🔹 Lógica hipotética (pseudo-código ou descrição)
 
@@ -92,7 +92,7 @@
      - Problemas de desempenho na consulta 
 
 
-#4. Comparação entre as abordagens
+## 4. Comparação entre as abordagens
 
 
   🔹 Testes caixa-preta focam no comportamento do sistema do ponto de vista do usuário, enquanto testes caixa-branca analisam a  lógica interna e implementação do código.
@@ -106,7 +106,7 @@
      - Erros na lógica do código, falhas em condições, problemas internos e caminhos não testados.   
 
 
-#5. Reflexão no contexto do LocalEats
+## 5. Reflexão no contexto do LocalEats
 
    
 
@@ -118,6 +118,6 @@
  
     - Não. As duas abordagens são necessárias, pois a caixa-preta identifica problemas visíveis ao usuário e a caixa-branca ajuda a encontrar a causa desses problemas no código.
 
-#Conclusão
+## Conclusão
 
     - A equipe compreendeu que testes caixa-preta e caixa-branca são complementares. Enquanto um foca na experiência do usuário, o outro analisa a estrutura interna do sistema.
