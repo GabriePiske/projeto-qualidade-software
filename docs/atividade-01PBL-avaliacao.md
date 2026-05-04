@@ -1,10 +1,10 @@
-Diagnóstico de Qualidade do Sistema Local Eats
+#Diagnóstico de Qualidade do Sistema Local Eats
 
- Equipe: Tech Quality
+Equipe: Tech Quality
 
- Integrante: Gabriel Piske
+Integrante: Gabriel Piske
 
- Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
+Sistema: Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 
 #Esta atividade foca em listar os problemas do Localeats (aplicação de comida ficticia) no caso o nosso PBL , e fazer a associação
