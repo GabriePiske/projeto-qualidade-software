@@ -1,123 +1,102 @@
-# Testes Funcionais e Estruturais
+# Testes Funcionais e Estruturais – LocalEats
 
- **Equipe:** Tech Quality
+**Equipe:** Tech Quality
 
- **Integrante:** Gabriel Piske
+**Integrante:** Gabriel Piske
 
- **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
+**Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
+---
 
 ## 1. Funcionalidade
 
- 🔹Funcionalidade selecionada:
-  
-    - Busca de Restaurantes
-  
- 🔹Descrição da funcionalidade:
+**Funcionalidade selecionada:** Busca de Restaurantes
 
-    - Permite que o usuário pesquise restaurantes com base em filtros como tipo de culinária, localização e faixa de preço. 
-  
- 🔹O que o usuário espera:
+**Descrição da funcionalidade:**
+Permite que o usuário pesquise restaurantes com base em filtros como tipo de culinária, localização e faixa de preço.
 
-    - O usuário espera encontrar resultados corretos, rápidos e relevantes de acordo com os filtros informados.
+**O que o usuário espera:**
+O usuário espera encontrar resultados corretos, rápidos e relevantes de acordo com os filtros informados.
 
+---
 
-## 2. Testes de Caixa-preta (visão do usuario)
+## 2. Testes de Caixa-Preta (visão do usuário)
 
-  
-🔹Cenários de teste
-   
-   Cenário 1:
+### Cenários de teste
 
-     - Buscar por tipo de culinária (ex: “pizza”) → sistema deve retornar restaurantes desse tipo
-   
-   Cenário 2:
+- **Cenário 1:** buscar por tipo de culinária (ex: "pizza") → sistema deve retornar restaurantes desse tipo
+- **Cenário 2:** buscar com múltiplos filtros (ex: "pizza + barato + perto") → resultados devem respeitar todos os filtros
+- **Cenário 3:** buscar algo inexistente → sistema deve informar que não há resultados
+- **Cenário 4:** buscar sem preencher filtros → sistema deve mostrar sugestões ou lista geral
 
-     - Buscar com múltiplos filtros (ex: “pizza + barato + perto”) → resultados devem respeitar todos os filtros
+### Possíveis erros identificados
 
-   Cenário 3:
+- Resultados incorretos ou irrelevantes
+- Filtros não funcionando corretamente
+- Nenhum resultado sendo exibido mesmo com dados existentes
+- Lentidão na resposta da busca
 
-     - Buscar algo inexistente → sistema deve informar que não há resultados
+---
 
-   Cenário 4: 
-  
-     - Buscar sem preencher filtros → sistema deve mostrar sugestões ou lista geral
-     
-   
-  🔹Possiveis erros identificados
-     
-     - Resultados incorretos ou irrelevantes
-     - Filtros não funcionando corretamente
-     - Nenhum resultado sendo exibido mesmo com dados existentes
-     - Lentidão na resposta da busca 
+## 3. Testes de Caixa-Branca (visão do sistema)
 
+### Lógica hipotética (pseudo-código)
 
-## 3. Testes de Caixa-branca (visão do sistema)
-
-  🔹 Lógica hipotética (pseudo-código ou descrição)
-
-    <!-- se (filtro preenchido) então
-    
+```
+se (filtro preenchido) então
     aplicar filtro de tipo
-    
     aplicar filtro de localização
-    
     aplicar filtro de preço
-    
-    fim
+fim
 
-    buscar dados no banco
+buscar dados no banco
 
-    se (resultado vazio) então
+se (resultado vazio) então
     retornar mensagem "nenhum resultado encontrado"
-    
-    senão
+senão
     exibir lista de restaurantes
-    
-    fim -->
+fim
+```
 
-  
- 🔹Situações a serem testadas 
-       
-    - Situação 1: filtros combinados corretamente (AND / OR)
-    - Situação 2: validação de campos vazios
-    - Situação 3: tratamento de erro na consulta ao banco
+### Situações a serem testadas
 
-  
- 🔹Possiveis erros identificados
-     
-     - Erro na lógica de combinação de filtros
-     - Consulta incorreta ao banco de dados
-     - Falha ao tratar resultados vazios
-     - Problemas de desempenho na consulta 
+- **Situação 1:** filtros combinados corretamente (AND / OR)
+- **Situação 2:** validação de campos vazios
+- **Situação 3:** tratamento de erro na consulta ao banco
 
+### Possíveis erros identificados
+
+- Erro na lógica de combinação de filtros
+- Consulta incorreta ao banco de dados
+- Falha ao tratar resultados vazios
+- Problemas de desempenho na consulta
+
+---
 
 ## 4. Comparação entre as abordagens
 
+Testes caixa-preta focam no comportamento do sistema do ponto de vista do usuário, enquanto testes caixa-branca analisam a lógica interna e a implementação do código.
 
-  🔹 Testes caixa-preta focam no comportamento do sistema do ponto de vista do usuário, enquanto testes caixa-branca analisam a  lógica interna e implementação do código.
+**Caixa-preta identifica:**
+- Erros de funcionalidade, problemas de usabilidade e resultados incorretos.
 
-  🔹Caixa-preta
-     
-     - Erros de funcionalidade, problemas de usabilidade e resultados incorretos. 
+**Caixa-branca identifica:**
+- Erros na lógica do código, falhas em condições, problemas internos e caminhos não testados.
 
-  🔹Caixa-preta
-     
-     - Erros na lógica do código, falhas em condições, problemas internos e caminhos não testados.   
+---
 
+## 5. Reflexão no Contexto do LocalEats
 
-## 5. Reflexão no contexto do LocalEats
+**Qual abordagem parece mais importante neste momento do projeto?**
 
-   
+A abordagem caixa-preta é mais importante inicialmente, pois o sistema já está em produção e apresenta problemas visíveis para o usuário.
 
- 🔹Qual abordagem parece mais importante neste momento do projeto?
+**Apenas uma abordagem seria suficiente? Por quê?**
 
-    - A abordagem caixa-preta é mais importante inicialmente, pois o sistema já está em produção e apresenta problemas visíveis para o usuário.
+Não. As duas abordagens são necessárias: a caixa-preta identifica problemas visíveis ao usuário e a caixa-branca ajuda a encontrar a causa desses problemas no código.
 
- 🔹Apenas uma abordagem seria suficiente? Por quê?
- 
-    - Não. As duas abordagens são necessárias, pois a caixa-preta identifica problemas visíveis ao usuário e a caixa-branca ajuda a encontrar a causa desses problemas no código.
+---
 
 ## Conclusão
 
-    - A equipe compreendeu que testes caixa-preta e caixa-branca são complementares. Enquanto um foca na experiência do usuário, o outro analisa a estrutura interna do sistema.
+A equipe compreendeu que testes caixa-preta e caixa-branca são complementares. Enquanto um foca na experiência do usuário, o outro analisa a estrutura interna do sistema.
