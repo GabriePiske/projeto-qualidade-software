@@ -1,15 +1,16 @@
-# 🧪 PBL – Aula 9: Testes Unitários Automatizados e TDD – LocalEats
+# Testes Unitários Automatizados e TDD – LocalEats
 
-**Aluno:** Gabriel  
-**Curso:** Análise e Desenvolvimento de Sistemas – Senac Pelotas  
-**Disciplina:** Qualidade de Software  
-**Sistema:** LocalEats  
+**Equipe:** Tech Quality
+
+**Integrante:** Gabriel Piske
+
+**Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 ---
 
-## 🔹 1. Funcionalidade Escolhida
+## 1. Funcionalidade Escolhida
 
-### 🚚 Cálculo de Taxa de Entrega
+### Cálculo de Taxa de Entrega
 
 **O que faz:**  
 Calcula o valor da taxa de entrega com base na distância em quilômetros informada pelo sistema.
@@ -55,7 +56,7 @@ def calcular_taxa_entrega(distancia_km: float) -> float:
 
 ---
 
-## 🔹 2. Testes Unitários
+## 2. Testes Unitários
 
 ### Configuração do ambiente
 
@@ -185,7 +186,7 @@ def test_deve_lancar_erro_para_distancia_negativa():
 
 ---
 
-## 🔹 3. Aplicação do TDD
+## 3. Aplicação do TDD
 
 ### Funcionalidade aplicada: Cálculo de Taxa de Entrega
 
@@ -193,7 +194,7 @@ O ciclo TDD foi aplicado de forma completa na função `calcular_taxa_entrega`.
 
 ---
 
-### 🔴 Red — Escrever o teste antes da implementação
+### Red — Escrever o teste antes da implementação
 
 Antes de escrever qualquer código de produção, o teste foi criado:
 
@@ -217,7 +218,7 @@ A falha confirma que o teste está correto e aguarda implementação — esse é
 
 ---
 
-### 🟢 Green — Implementação mínima para passar no teste
+### Green — Implementação mínima para passar no teste
 
 ```python
 # taxa_entrega.py — implementação mínima (sem refatoração)
@@ -239,7 +240,7 @@ PASSED test_taxa_entrega.py::test_deve_retornar_taxa_fixa_para_distancia_ate_3km
 
 ---
 
-### 🔵 Refactor — Melhorar sem quebrar os testes
+### Refactor — Melhorar sem quebrar os testes
 
 Após todos os testes passarem, o código foi refatorado para maior clareza e manutenibilidade:
 
@@ -277,7 +278,7 @@ def _validar_distancia(distancia_km: float) -> None:
 
 ---
 
-## 🔹 4. Refatoração
+## 4. Refatoração
 
 ### Melhorias realizadas
 
@@ -294,7 +295,7 @@ Extrair a validação para `_validar_distancia()` segue o princípio de responsa
 
 ---
 
-## 🔹 5. Execução dos Testes
+## 5. Execução dos Testes
 
 ### Arquivo completo: `test_taxa_entrega.py`
 
@@ -352,7 +353,7 @@ test_taxa_entrega.py::test_deve_lancar_erro_para_distancia_negativa             
 
 ---
 
-## 🔹 6. Reflexão no Contexto do LocalEats
+## 6. Reflexão no Contexto do LocalEats
 
 **Foi difícil escrever testes antes do código?**  
 No início, sim. O instinto natural é implementar primeiro e testar depois. Escrever o teste antes obrigou a pensar com mais cuidado na interface da função — quais parâmetros ela recebe, o que retorna, quais erros deve levantar — antes de se preocupar com como ela funciona internamente. Esse exercício de design foi mais valioso do que parecia.
