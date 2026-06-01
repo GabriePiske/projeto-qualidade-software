@@ -97,7 +97,7 @@ def test_deve_retornar_taxa_fixa_para_distancia_ate_3km():
 **Nome descritivo:** `test_deve_retornar_taxa_fixa_para_distancia_exatamente_3km`
 
 **Cenário testado:**  
-Valida o comportamento exato no limite de 3 km — valor de contorno crítico onde a regra de taxa fixa ainda deve ser aplicada.
+Valida o comportamento exato no limite de 3 km, valor de contorno crítico onde a regra de taxa fixa ainda deve ser aplicada.
 
 **Dados de entrada:** `distancia_km = 3.0`  
 **Resultado esperado:** `5.00`
@@ -214,7 +214,7 @@ FAILED test_taxa_entrega.py::test_deve_retornar_taxa_fixa_para_distancia_ate_3km
 NameError: name 'calcular_taxa_entrega' is not defined
 ```
 
-A falha confirma que o teste está correto e aguarda implementação — esse é o comportamento esperado no Red.
+A falha confirma que o teste está correto e aguarda implementação, esse é o comportamento esperado no Red.
 
 ---
 
@@ -291,7 +291,7 @@ def _validar_distancia(distancia_km: float) -> None:
 
 ### Justificativa
 
-Extrair a validação para `_validar_distancia()` segue o princípio de responsabilidade única (SRP): a função principal cuida apenas do cálculo, e a validação tem seu próprio escopo. As constantes nomeadas tornam o código autodocumentado — qualquer manutenção futura (ex: alterar a taxa por km) é feita em um único lugar.
+Extrair a validação para `_validar_distancia()` segue o princípio de responsabilidade única (SRP): a função principal cuida apenas do cálculo, e a validação tem seu próprio escopo. As constantes nomeadas tornam o código autodocumentado, qualquer manutenção futura (ex: alterar a taxa por km) é feita em um único lugar.
 
 ---
 
@@ -356,8 +356,8 @@ test_taxa_entrega.py::test_deve_lancar_erro_para_distancia_negativa             
 ## 6. Reflexão no Contexto do LocalEats
 
 **Foi difícil escrever testes antes do código?**  
-No início, sim. O instinto natural é implementar primeiro e testar depois. Escrever o teste antes obrigou a pensar com mais cuidado na interface da função — quais parâmetros ela recebe, o que retorna, quais erros deve levantar — antes de se preocupar com como ela funciona internamente. Esse exercício de design foi mais valioso do que parecia.
-
+No início, sim. O instinto natural é implementar primeiro e testar depois. Escrever o teste antes obrigou a pensar com mais cuidado na interface da função, quais parâmetros ela recebe, o que retorna, quais erros deve levantar, antes de se preocupar com como ela funciona internamente. Esse exercício de design foi mais valioso do que parecia.
+                  
 **O TDD ajudou no desenvolvimento?**  
 Sim, de forma clara. O ciclo Red → Green → Refactor criou um ritmo de desenvolvimento seguro: cada etapa tem um objetivo específico, e a refatoração só acontece com a segurança de testes verdes. Isso eliminou a hesitação de melhorar o código por medo de quebrar algo.
 
@@ -368,6 +368,6 @@ Muito. Ao refatorar a função (extraindo `_validar_distancia` e nomeando as con
 Adicionaria testes para valores de ponto flutuante com arredondamento (ex: 3.1 km) e testaria distâncias muito grandes para verificar se não há overflow ou comportamento inesperado. Também seria interessante parametrizar os testes com `@pytest.mark.parametrize` para cobrir mais casos com menos código repetido.
 
 **Como isso ajuda no projeto do grupo (LocalEats)?**  
-O LocalEats possui regras de negócio críticas — cálculo de taxa de entrega, validação de pedidos e aplicação de descontos. Essas são áreas onde um erro silencioso pode gerar cobranças incorretas ou pedidos inválidos. TDD garantiria que cada regra fosse validada automaticamente a cada mudança no código, evitando regressões nas funcionalidades mais críticas do sistema.
+O LocalEats possui regras de negócio críticas, cálculo de taxa de entrega, validação de pedidos e aplicação de descontos. Essas são áreas onde um erro silencioso pode gerar cobranças incorretas ou pedidos inválidos. TDD garantiria que cada regra fosse validada automaticamente a cada mudança no código, evitando regressões nas funcionalidades mais críticas do sistema.
 
 ---
