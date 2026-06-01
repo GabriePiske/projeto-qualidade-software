@@ -156,7 +156,7 @@
     
     - Cursos na área de desenvolvimento
        
-       - ISTQB CTFL
+       - AWS Certified Developer, Oracle Certified Professional (Java), ou similares.
     
 
 ## 5. Conclusão da Equipe
