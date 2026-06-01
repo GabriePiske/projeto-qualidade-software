@@ -174,8 +174,8 @@ Testes manuais baseados em cenários definidos previamente, executados no navega
 | CT-03 | **Passou** | Ao digitar o nome de um restaurante existente, a listagem foi filtrada corretamente, exibindo apenas o resultado correspondente ao termo digitado. |
 | CT-04 | **Passou** | O clique em "Meus Favoritos" navegou corretamente para `/static/profile.html`. A página carregou com o título "Restaurantes Favoritos" visível, sem erros. |
 | CT-05 | **Passou** | O clique em "Meus Pedidos" navegou corretamente para `/static/orders.html`. A página carregou com o título "Histórico de Transações" visível, sem erros. |
-| CT-06 | **Falhou** | Os produtos do restaurante são exibidos corretamente. Porém, ao clicar no botão "Cardápio", nenhuma ação ocorre — não há resposta visual, troca de conteúdo ou feedback ao usuário. O botão existe na interface mas não possui comportamento funcional. |
-| CT-07 | **Falhou** | As avaliações do restaurante estão visíveis na página. Ao clicar no botão "Avaliações", nenhuma ação ocorre — o sistema não responde ao clique, sem troca de aba, redirecionamento ou qualquer feedback visual. O botão aparenta estar inativo. |
+| CT-06 | **Falhou** | Os produtos do restaurante são exibidos corretamente. Porém, ao clicar no botão "Cardápio", nenhuma ação ocorre, não há resposta visual, troca de conteúdo ou feedback ao usuário. O botão existe na interface mas não possui comportamento funcional. |
+| CT-07 | **Falhou** | As avaliações do restaurante estão visíveis na página. Ao clicar no botão "Avaliações", nenhuma ação ocorre, o sistema não responde ao clique, sem troca de aba, redirecionamento ou qualquer feedback visual. O botão aparenta estar inativo. |
 
 
 ## 4. Análise dos Resultados
