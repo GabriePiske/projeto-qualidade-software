@@ -1,16 +1,15 @@
-# Testes Unitários Automatizados e TDD – LocalEats
+# 🧪 PBL – Aula 9: Testes Unitários Automatizados e TDD – LocalEats
 
- **Equipe:** Tech Quality
-
- **Integrante:** Gabriel Piske
-
- **Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
+**Aluno:** Gabriel  
+**Curso:** Análise e Desenvolvimento de Sistemas – Senac Pelotas  
+**Disciplina:** Qualidade de Software  
+**Sistema:** LocalEats  
 
 ---
 
 ## 🔹 1. Funcionalidade Escolhida
 
-### Cálculo de Taxa de Entrega
+### 🚚 Cálculo de Taxa de Entrega
 
 **O que faz:**  
 Calcula o valor da taxa de entrega com base na distância em quilômetros informada pelo sistema.
@@ -68,7 +67,7 @@ pip install pytest
 
 ---
 
-### Teste 1 — Distância dentro da faixa de taxa fixa
+### ✅ Teste 1 — Distância dentro da faixa de taxa fixa
 
 **Nome descritivo:** `test_deve_retornar_taxa_fixa_para_distancia_ate_3km`
 
@@ -92,7 +91,7 @@ def test_deve_retornar_taxa_fixa_para_distancia_ate_3km():
 
 ---
 
-### Teste 2 — Distância exatamente no limite da taxa fixa (valor de contorno)
+### ✅ Teste 2 — Distância exatamente no limite da taxa fixa (valor de contorno)
 
 **Nome descritivo:** `test_deve_retornar_taxa_fixa_para_distancia_exatamente_3km`
 
@@ -116,7 +115,7 @@ def test_deve_retornar_taxa_fixa_para_distancia_exatamente_3km():
 
 ---
 
-### Teste 3 — Distância acima de 3 km com taxa proporcional
+### ✅ Teste 3 — Distância acima de 3 km com taxa proporcional
 
 **Nome descritivo:** `test_deve_calcular_taxa_proporcional_para_distancia_acima_de_3km`
 
@@ -140,7 +139,7 @@ def test_deve_calcular_taxa_proporcional_para_distancia_acima_de_3km():
 
 ---
 
-### Teste 4 — Distância zero (cenário de erro/borda)
+### ❌ Teste 4 — Distância zero (cenário de erro/borda)
 
 **Nome descritivo:** `test_deve_lancar_erro_para_distancia_zero`
 
@@ -164,7 +163,7 @@ def test_deve_lancar_erro_para_distancia_zero():
 
 ---
 
-### Teste 5 — Distância negativa (cenário de erro/borda)
+### ❌ Teste 5 — Distância negativa (cenário de erro/borda)
 
 **Nome descritivo:** `test_deve_lancar_erro_para_distancia_negativa`
 
@@ -232,7 +231,7 @@ def calcular_taxa_entrega(distancia_km):
     return 5.00 + (km_excedentes * 2.00)
 ```
 
-**Resultado após implementação:** PASSOU
+**Resultado após implementação:** ✅ PASSOU
 
 ```
 PASSED test_taxa_entrega.py::test_deve_retornar_taxa_fixa_para_distancia_ate_3km
@@ -274,7 +273,7 @@ def _validar_distancia(distancia_km: float) -> None:
         raise ValueError("Distância deve ser maior que zero.")
 ```
 
-**Resultado após refatoração:** Todos os testes continuam passando.
+**Resultado após refatoração:** ✅ Todos os testes continuam passando.
 
 ---
 
@@ -367,9 +366,7 @@ Muito. Ao refatorar a função (extraindo `_validar_distancia` e nomeando as con
 **O que melhorariam?**  
 Adicionaria testes para valores de ponto flutuante com arredondamento (ex: 3.1 km) e testaria distâncias muito grandes para verificar se não há overflow ou comportamento inesperado. Também seria interessante parametrizar os testes com `@pytest.mark.parametrize` para cobrir mais casos com menos código repetido.
 
-**Como isso ajuda no projeto do grupo (NoControle)?**  
-O NoControle possui regras de negócio financeiras — cálculo de totais de assinaturas, alertas de vencimento, categorização de gastos. Essas são áreas onde um erro silencioso pode passar despercebido por semanas. TDD garantiria que cada regra fosse validada automaticamente a cada mudança no código, evitando regressões nas funcionalidades mais críticas do sistema.
+**Como isso ajuda no projeto do grupo (LocalEats)?**  
+O LocalEats possui regras de negócio críticas — cálculo de taxa de entrega, validação de pedidos e aplicação de descontos. Essas são áreas onde um erro silencioso pode gerar cobranças incorretas ou pedidos inválidos. TDD garantiria que cada regra fosse validada automaticamente a cada mudança no código, evitando regressões nas funcionalidades mais críticas do sistema.
 
 ---
-
-*Documento elaborado para a disciplina de Qualidade de Software – Senac Pelotas, 2026.*
