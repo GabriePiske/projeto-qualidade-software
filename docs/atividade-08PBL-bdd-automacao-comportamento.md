@@ -54,7 +54,7 @@ Feature: Filtro por categoria de restaurante
 
 ### Por que esses cenários?
 
-Os dois cenários cobrem o comportamento principal do filtro: **aplicar** e **remover**. São escritos em linguagem natural para que qualquer pessoa — técnica ou não — consiga entender o que o sistema deve fazer. Nenhum detalhe de implementação (seletores CSS, classes, IDs) aparece no Gherkin.
+Os dois cenários cobrem o comportamento principal do filtro: **aplicar** e **remover**. São escritos em linguagem natural para que qualquer pessoa, técnica ou não, consiga entender o que o sistema deve fazer. Nenhum detalhe de implementação (seletores CSS, classes, IDs) aparece no Gherkin.
 
 ---
 
@@ -183,7 +183,7 @@ localeats-bdd/
 └── requirements.txt                  # Dependências do projeto
 ```
 
-A separação entre `features/` e `tests/` é fundamental no BDD: o arquivo `.feature` é a **documentação viva** do comportamento — pode ser lida por qualquer pessoa. O arquivo de testes é a **implementação técnica** — só interessa ao desenvolvedor/QA.
+A separação entre `features/` e `tests/` é fundamental no BDD: o arquivo `.feature` é a **documentação viva** do comportamento, pode ser lida por qualquer pessoa. O arquivo de testes é a **implementação técnica**, só interessa ao desenvolvedor/QA.
 
 ---
 
@@ -223,7 +223,7 @@ tests/test_filtro_categoria.py::test_restaurar_listagem_completa_com_filtro_todo
 ## 6. Análise Crítica
 
 **O cenário escrito ficou compreensível?**  
-Sim. Os cenários em Gherkin descrevem o comportamento em linguagem natural — "o usuário clica no filtro Italiana" é direto ao ponto e não exige conhecimento técnico para ser compreendido. Qualquer stakeholder consegue validar se o comportamento descrito é o esperado.
+Sim. Os cenários em Gherkin descrevem o comportamento em linguagem natural, "o usuário clica no filtro Italiana" é direto ao ponto e não exige conhecimento técnico para ser compreendido. Qualquer stakeholder consegue validar se o comportamento descrito é o esperado.
 
 **O teste automatizado ficou legível?**  
 Razoavelmente. O código dos steps é mais técnico por natureza, mas a nomenclatura das funções espelha o texto do Gherkin, o que facilita a leitura. A separação em `@given`, `@when`, `@then` mantém o código organizado e com responsabilidade clara.
@@ -232,16 +232,16 @@ Razoavelmente. O código dos steps é mais técnico por natureza, mas a nomencla
 Sim. Escrever o cenário antes da automação obrigou a pensar no **comportamento esperado** antes de qualquer detalhe de implementação. Isso é análogo ao TDD: o cenário define o contrato que o sistema deve cumprir.
 
 **Quais dificuldades surgiram?**  
-A principal dificuldade foi o `given` compartilhado entre os dois cenários — o pytest-bdd exige que steps com texto idêntico compartilhem a mesma função, o que pode gerar conflitos quando os contextos são ligeiramente diferentes. A solução foi separar o `given` do cenário 2 com texto distinto.
+A principal dificuldade foi o `given` compartilhado entre os dois cenários, o pytest-bdd exige que steps com texto idêntico compartilhem a mesma função, o que pode gerar conflitos quando os contextos são ligeiramente diferentes. A solução foi separar o `given` do cenário 2 com texto distinto.
 
 **Os seletores foram frágeis?**  
 Moderadamente. O uso de `.filter-btn` com `has_text='Italiana'` é mais robusto do que selecionar por índice, mas ainda depende do nome da classe CSS. Idealmente, os botões teriam `data-testid="filtro-italiana"` para máxima estabilidade.
 
 **O teste ficou dependente da interface?**  
-Sim — testes E2E são por natureza dependentes da interface. A mitigação foi usar seletores baseados em texto visível (`has_text`) em vez de classes ou posições, o que reduz a fragilidade diante de redesigns.
+Sim, testes E2E são por natureza dependentes da interface. A mitigação foi usar seletores baseados em texto visível (`has_text`) em vez de classes ou posições, o que reduz a fragilidade diante de redesigns.
 
 **O cenário representa realmente uma regra de negócio?**  
-Sim. "Ao filtrar por Italiana, apenas restaurantes dessa categoria devem aparecer" é uma regra de negócio real — não um detalhe técnico. O Gherkin captura essa intenção sem expor como ela é implementada.
+Sim. "Ao filtrar por Italiana, apenas restaurantes dessa categoria devem aparecer" é uma regra de negócio real, não um detalhe técnico. O Gherkin captura essa intenção sem expor como ela é implementada.
 
 **O que tornaria o teste mais robusto?**  
 - Atributos `data-testid` nos botões de filtro e nos cards
@@ -253,16 +253,16 @@ Sim. "Ao filtrar por Italiana, apenas restaurantes dessa categoria devem aparece
 ## 7. Reflexão no Contexto do LocalEats
 
 **BDD melhora comunicação entre equipe?**  
-Sim, significativamente. O arquivo `.feature` é a ponte entre negócio e técnico — o gerente de produto pode escrever ou validar os cenários sem entender Python, e o desenvolvedor implementa os steps sabendo exatamente o que precisa entregar. Isso reduz ambiguidade e retrabalho.
+Sim, significativamente. O arquivo `.feature` é a ponte entre negócio e técnico, o gerente de produto pode escrever ou validar os cenários sem entender Python, e o desenvolvedor implementa os steps sabendo exatamente o que precisa entregar. Isso reduz ambiguidade e retrabalho.
 
 **Todo teste deve ser escrito em BDD?**  
-Não. BDD tem custo de escrita mais alto do que testes unitários convencionais. Vale para **comportamentos de negócio visíveis ao usuário** — fluxos de compra, navegação, autenticação. Para lógica interna (cálculo de taxa, validação de campos), testes unitários com pytest puro são mais rápidos e diretos.
+Não. BDD tem custo de escrita mais alto do que testes unitários convencionais. Vale para **comportamentos de negócio visíveis ao usuário**, fluxos de compra, navegação, autenticação. Para lógica interna (cálculo de taxa, validação de campos), testes unitários com pytest puro são mais rápidos e diretos.
 
 **Quando vale a pena usar BDD?**  
 Quando há múltiplos stakeholders com visões diferentes do mesmo comportamento, quando os requisitos mudam com frequência e precisam de documentação viva, ou quando a equipe de QA precisa validar comportamentos com pessoas de negócio que não leem código.
 
 **O comportamento ficou mais claro?**  
-Sim. Comparando com o teste funcional da aula anterior — que descrevia "clicar no `.filter-btn` e verificar `.rest-card`" — o cenário BDD comunica a intenção: "filtrar por categoria deve mostrar apenas restaurantes daquela categoria". A diferença é sutil, mas importante para alinhamento de equipe.
+Sim. Comparando com o teste funcional da aula anterior, que descrevia "clicar no `.filter-btn` e verificar `.rest-card`", o cenário BDD comunica a intenção: "filtrar por categoria deve mostrar apenas restaurantes daquela categoria". A diferença é sutil, mas importante para alinhamento de equipe.
 
 **Como isso ajuda no projeto do grupo (LocalEats)?**  
-O LocalEats tem comportamentos críticos que envolvem múltiplas partes — o filtro de restaurantes, o fluxo de pedido e a navegação entre páginas são fluxos que qualquer membro da equipe deveria conseguir descrever e validar. BDD permitiria que esses comportamentos fossem documentados de forma executável, garantindo que a implementação sempre reflita o que foi acordado como correto.
+O LocalEats tem comportamentos críticos que envolvem múltiplas partes, o filtro de restaurantes, o fluxo de pedido e a navegação entre páginas são fluxos que qualquer membro da equipe deveria conseguir descrever e validar. BDD permitiria que esses comportamentos fossem documentados de forma executável, garantindo que a implementação sempre reflita o que foi acordado como correto.
