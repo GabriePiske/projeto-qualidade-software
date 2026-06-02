@@ -1,15 +1,16 @@
-# 🧪 PBL – Aula 10: Testes Funcionais Automatizados – LocalEats
+# Testes Funcionais Automatizados – LocalEats
 
-**Aluno:** Gabriel  
-**Curso:** Análise e Desenvolvimento de Sistemas – Senac Pelotas  
-**Disciplina:** Qualidade de Software  
-**Sistema:** LocalEats — https://local-eats-unisenac.vercel.app/static/index.html  
+**Equipe:** Tech Quality
+
+**Integrante:** Gabriel Piske
+
+**Sistema:** Local Eats (https://local-eats-unisenac.vercel.app/static/index.html)
 
 ---
 
-## 🔹 1. Fluxo Funcional Escolhido
+## 1. Fluxo Funcional Escolhido
 
-### 🍽️ Navegação e Visualização de Restaurantes
+### Navegação e Visualização de Restaurantes
 
 **O que faz:**  
 Permite ao usuário navegar pela lista de restaurantes disponíveis na plataforma e acessar os detalhes de um restaurante específico.
@@ -30,7 +31,7 @@ Garante que o usuário consiga explorar as opções disponíveis sem falhas de c
 
 ---
 
-## 🔹 2. Teste Automatizado com Codegen
+## 2. Teste Automatizado com Codegen
 
 ### Comando utilizado
 
@@ -76,7 +77,7 @@ O site é uma aplicação em **HTML estático com carregamento dinâmico de dado
 
 ---
 
-## 🔹 3. Implementação do Teste com Pytest
+## 3. Implementação do Teste com Pytest
 
 ### Estrutura de arquivos
 
@@ -144,7 +145,7 @@ def test_filtro_de_categoria_e_clicavel(page: Page):
 
 ---
 
-## 🔹 4. Refatoração com Page Object Model (POM)
+## 4. Refatoração com Page Object Model (POM)
 
 O POM separa a lógica de interação com a interface dos testes em si. O resultado são testes mais legíveis, fáceis de manter e resilientes a mudanças na interface.
 
@@ -257,7 +258,7 @@ def test_botoes_de_filtro_estao_disponiveis(page: Page):
 
 ---
 
-## 🔹 5. Execução dos Testes
+## 5. Execução dos Testes
 
 ### Comando de execução
 
@@ -296,7 +297,7 @@ tests/test_navegacao_restaurantes.py::test_botoes_de_filtro_estao_disponiveis   
 
 ---
 
-## 🔹 6. Análise Crítica dos Testes
+## 6. Análise Crítica dos Testes
 
 **O teste quebrou em algum momento? Por quê?**  
 Sim — na primeira versão sem o `wait_for_selector(".restaurant-card")`, o teste de listagem falhava intermitentemente com `TimeoutError`. O site carrega os restaurantes via JavaScript de forma assíncrona depois do HTML inicial. O Codegen não percebeu esse comportamento porque gravou a interação depois que o JS já havia terminado no navegador do desenvolvedor. Em um ambiente mais lento ou em CI, isso falha facilmente.
@@ -323,7 +324,7 @@ Razoavelmente. O `wait_for_selector` resolve a principal fragilidade de timing. 
 
 ---
 
-## 🔹 7. Reflexão no Contexto do LocalEats
+## 7. Reflexão no Contexto do LocalEats
 
 **Testes automatizados substituem testes manuais?**  
 Não completamente. Testes automatizados são excelentes para regressão — garantir que o que funcionava continua funcionando. Mas testes exploratórios manuais continuam sendo essenciais para descobrir problemas de usabilidade, fluxos não mapeados e comportamentos inesperados que um script não saberia verificar.
@@ -336,7 +337,3 @@ A pirâmide de testes continua sendo a referência: a base deve ser de testes un
 
 **Como isso ajuda no projeto do grupo (LocalEats)?**  
 O LocalEats tem fluxos críticos como navegação de restaurantes, adição de itens ao carrinho e finalização de pedido. Automatizar esses fluxos com Playwright garantiria que nenhum deploy quebre a experiência principal do usuário. Qualquer mudança no frontend — redesign de componentes, atualização de rotas ou alteração na API de pedidos — seria detectada automaticamente pelos testes E2E antes de chegar aos usuários.
-
----
-
-*Documento elaborado para a disciplina de Qualidade de Software – Senac Pelotas, 2026.*
