@@ -16,7 +16,7 @@
 Permite ao usuário navegar pela lista de restaurantes disponíveis na plataforma e acessar os detalhes de um restaurante específico.
 
 **Problema que resolve:**  
-Garante que o usuário consiga explorar as opções disponíveis sem falhas de carregamento, elementos ausentes ou navegação quebrada — problemas que impactam diretamente a experiência de uso e a conversão de pedidos.
+Garante que o usuário consiga explorar as opções disponíveis sem falhas de carregamento, elementos ausentes ou navegação quebrada, problemas que impactam diretamente a experiência de uso e a conversão de pedidos.
 
 **Importância:**  
 É a etapa que precede toda compra. Se a listagem não carregar ou o clique em um restaurante não funcionar, nenhum pedido é realizado. Trata-se de um fluxo crítico de descoberta e entrada no funil de compra.
@@ -70,7 +70,7 @@ O site é uma aplicação em **HTML estático com carregamento dinâmico de dado
 - Gerou código funcional como ponto de partida
 
 **O que gerou código desnecessário ou frágil:**
-- Não incluiu nenhum `wait` para o carregamento dinâmico dos restaurantes — o JS busca os dados de uma API e popula os cards depois do `DOMContentLoaded`, então sem espera o teste falha intermitentemente
+- Não incluiu nenhum `wait` para o carregamento dinâmico dos restaurantes, o JS busca os dados de uma API e popula os cards depois do `DOMContentLoaded`, então sem espera o teste falha intermitentemente
 - A estrutura `run(playwright)` com `sync_playwright` não é compatível com Pytest sem adaptação
 - Sem nenhuma `assertion` — o Codegen gravou ações, mas não verificações de resultado
 - Seletores por classe CSS (`.restaurant-card`) são frágeis se o nome da classe mudar
@@ -251,7 +251,7 @@ def test_botoes_de_filtro_estao_disponiveis(page: Page):
 
 | Problema no código bruto | Solução com POM |
 |---|---|
-| Seletores `.restaurant-card` repetidos em vários testes | Centralizados na classe — mudar em um lugar atualiza todos |
+| Seletores `.restaurant-card` repetidos em vários testes | Centralizados na classe, mudar em um lugar atualiza todos |
 | `wait_for_selector` espalhado nos testes | Encapsulado no método `cards_de_restaurante()` |
 | Testes misturando "como interagir" com "o que verificar" | Page Objects cuidam do "como"; testes descrevem o "o quê" |
 | Difícil de ler o fluxo testado | Testes leem-se como documentação do comportamento esperado |
@@ -300,16 +300,16 @@ tests/test_navegacao_restaurantes.py::test_botoes_de_filtro_estao_disponiveis   
 ## 6. Análise Crítica dos Testes
 
 **O teste quebrou em algum momento? Por quê?**  
-Sim — na primeira versão sem o `wait_for_selector(".restaurant-card")`, o teste de listagem falhava intermitentemente com `TimeoutError`. O site carrega os restaurantes via JavaScript de forma assíncrona depois do HTML inicial. O Codegen não percebeu esse comportamento porque gravou a interação depois que o JS já havia terminado no navegador do desenvolvedor. Em um ambiente mais lento ou em CI, isso falha facilmente.
+Sim, na primeira versão sem o `wait_for_selector(".restaurant-card")`, o teste de listagem falhava intermitentemente com `TimeoutError`. O site carrega os restaurantes via JavaScript de forma assíncrona depois do HTML inicial. O Codegen não percebeu esse comportamento porque gravou a interação depois que o JS já havia terminado no navegador do desenvolvedor. Em um ambiente mais lento ou em CI, isso falha facilmente.
 
 **Quais seletores foram mais difíceis?**  
-O campo de busca foi o mais delicado — o placeholder "Buscar" identificado via `get_by_placeholder` é uma boa prática, mas dependente do texto exato do atributo. Se o placeholder mudar para "Pesquisar restaurantes", o seletor quebra. O ideal seria um `data-testid` no elemento.
+O campo de busca foi o mais delicado, o placeholder "Buscar" identificado via `get_by_placeholder` é uma boa prática, mas dependente do texto exato do atributo. Se o placeholder mudar para "Pesquisar restaurantes", o seletor quebra. O ideal seria um `data-testid` no elemento.
 
 **O Codegen ajudou ou gerou problemas?**  
 Ajudou como ponto de partida para mapear as classes CSS reais do site (`.restaurant-card`, `.filter-btn`). Mas o código bruto não era entregável: sem `assertions`, sem espera pelo carregamento dinâmico e estrutura incompatível com Pytest. O Codegen é uma ferramenta de rascunho, não de entrega.
 
 **O teste é confiável? Por quê?**  
-Razoavelmente. O `wait_for_selector` resolve a principal fragilidade de timing. Porém, os seletores baseados em classes CSS (`.restaurant-card`) são frágeis — uma refatoração de CSS ou troca de nome de classe quebra todos os testes sem que haja mudança de comportamento funcional. O uso de `data-testid` nos elementos do HTML resolveria isso definitivamente.
+Razoavelmente. O `wait_for_selector` resolve a principal fragilidade de timing. Porém, os seletores baseados em classes CSS (`.restaurant-card`) são frágeis, uma refatoração de CSS ou troca de nome de classe quebra todos os testes sem que haja mudança de comportamento funcional. O uso de `data-testid` nos elementos do HTML resolveria isso definitivamente.
 
 **O que tornaria o teste mais robusto?**  
 - Adicionar atributos `data-testid` no HTML do site para seletores estáveis
@@ -319,21 +319,21 @@ Razoavelmente. O `wait_for_selector` resolve a principal fragilidade de timing. 
 
 **Quais são os riscos de manutenção?**  
 - Qualquer renomeação de classe CSS (`.restaurant-card` → `.card-restaurante`) quebra todos os testes
-- O conteúdo dinâmico depende de uma API externa — se a API retornar lista vazia, o teste falha sem ser um bug de interface
-- Testes E2E são lentos (~6s por teste) — uma suíte grande pode tornar o pipeline de CI lento sem paralelização
+- O conteúdo dinâmico depende de uma API externa, se a API retornar lista vazia, o teste falha sem ser um bug de interface
+- Testes E2E são lentos (~6s por teste), uma suíte grande pode tornar o pipeline de CI lento sem paralelização
 
 ---
 
 ## 7. Reflexão no Contexto do LocalEats
 
 **Testes automatizados substituem testes manuais?**  
-Não completamente. Testes automatizados são excelentes para regressão — garantir que o que funcionava continua funcionando. Mas testes exploratórios manuais continuam sendo essenciais para descobrir problemas de usabilidade, fluxos não mapeados e comportamentos inesperados que um script não saberia verificar.
+Não completamente. Testes automatizados são excelentes para regressão, garantir que o que funcionava continua funcionando. Mas testes exploratórios manuais continuam sendo essenciais para descobrir problemas de usabilidade, fluxos não mapeados e comportamentos inesperados que um script não saberia verificar.
 
 **Vale a pena automatizar todos os fluxos?**  
-Não. O custo de criação e manutenção de testes E2E é alto. Vale automatizar os fluxos críticos de negócio — navegação de restaurantes, adição ao carrinho e finalização de pedido. Fluxos secundários têm melhor custo-benefício sendo testados manualmente ou cobertos por testes unitários da lógica subjacente.
+Não. O custo de criação e manutenção de testes E2E é alto. Vale automatizar os fluxos críticos de negócio, navegação de restaurantes, adição ao carrinho e finalização de pedido. Fluxos secundários têm melhor custo-benefício sendo testados manualmente ou cobertos por testes unitários da lógica subjacente.
 
 **Qual tipo de teste deve ser priorizado?**  
 A pirâmide de testes continua sendo a referência: a base deve ser de testes unitários (rápidos, baratos, muitos), o meio de testes de integração, e o topo de testes E2E (lentos, caros, poucos, cobrindo os fluxos mais críticos). No LocalEats, as regras de negócio (cálculo de taxa, validação de pedido) ficam nos unitários; os fluxos de usuário ficam no E2E.
 
 **Como isso ajuda no projeto do grupo (LocalEats)?**  
-O LocalEats tem fluxos críticos como navegação de restaurantes, adição de itens ao carrinho e finalização de pedido. Automatizar esses fluxos com Playwright garantiria que nenhum deploy quebre a experiência principal do usuário. Qualquer mudança no frontend — redesign de componentes, atualização de rotas ou alteração na API de pedidos — seria detectada automaticamente pelos testes E2E antes de chegar aos usuários.
+O LocalEats tem fluxos críticos como navegação de restaurantes, adição de itens ao carrinho e finalização de pedido. Automatizar esses fluxos com Playwright garantiria que nenhum deploy quebre a experiência principal do usuário. Qualquer mudança no frontend, redesign de componentes, atualização de rotas ou alteração na API de pedidos, seria detectada automaticamente pelos testes E2E antes de chegar aos usuários.
