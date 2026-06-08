@@ -200,15 +200,12 @@ pytest tests/test_filtro_categoria.py -v
 ```
 $ pytest tests/test_filtro_categoria.py -v
 
-======================================================= test session starts ========================================================
-platform linux -- Python 3.11.0, pytest-7.4.0
-plugins: bdd-7.0.1, playwright-0.4.4
 collected 2 items
 
 tests/test_filtro_categoria.py::test_filtrar_restaurantes_por_categoria_italiana   PASSED [ 50%]
 tests/test_filtro_categoria.py::test_restaurar_listagem_completa_com_filtro_todos  PASSED [100%]
 
-======================================================== 2 passed in 5.43s =========================================================
+2 passed in 5.43s
 ```
 
 | Métrica | Resultado |
