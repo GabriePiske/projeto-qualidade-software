@@ -275,17 +275,13 @@ pytest tests/ -v --headed
 ```
 $ pytest tests/test_navegacao_restaurantes.py -v
 
-======================================================= test session starts ========================================================
-platform linux -- Python 3.11.0, pytest-7.4.0 -- /usr/bin/python3
-cachedir: .pytest_cache
-Using base URL: https://local-eats-unisenac.vercel.app/static/index.html
 collected 3 items
 
 tests/test_navegacao_restaurantes.py::test_pagina_inicial_carrega_com_titulo_correto          PASSED [ 33%]
 tests/test_navegacao_restaurantes.py::test_lista_de_restaurantes_exibe_pelo_menos_um_card     PASSED [ 66%]
 tests/test_navegacao_restaurantes.py::test_botoes_de_filtro_estao_disponiveis                 PASSED [100%]
 
-======================================================== 3 passed in 6.21s =========================================================
+3 passed in 6.21s
 ```
 
 | Métrica | Resultado |
