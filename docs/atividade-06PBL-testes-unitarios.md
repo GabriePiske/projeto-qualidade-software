@@ -331,8 +331,6 @@ def test_deve_lancar_erro_para_distancia_negativa():
 ```
 $ pytest test_taxa_entrega.py -v
 
-======================================================= test session starts ========================================================
-platform linux -- Python 3.11.0, pytest-7.4.0
 collected 5 items
 
 test_taxa_entrega.py::test_deve_retornar_taxa_fixa_para_distancia_ate_3km          PASSED   [ 20%]
@@ -341,7 +339,7 @@ test_taxa_entrega.py::test_deve_calcular_taxa_proporcional_para_distancia_acima_
 test_taxa_entrega.py::test_deve_lancar_erro_para_distancia_zero                    PASSED   [ 80%]
 test_taxa_entrega.py::test_deve_lancar_erro_para_distancia_negativa                PASSED   [100%]
 
-======================================================== 5 passed in 0.03s =========================================================
+5 passed in 0.03s
 ```
 
 | Métrica | Resultado |
